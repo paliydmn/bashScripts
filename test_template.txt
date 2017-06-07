@@ -1,0 +1,1 @@
+ ffmpeg -y -i test.ts -i logo2.png -filter_complex "[0:v]scale=iw:ih[v0];[1:v][v0]scale2ref=iw/6:ih/18[logo][0v];[0v][logo]overlay=W-w-3:H-h-1[v]" -map "[v]" -map 0:a -codec:v libx264 -preset ultrafast -crf 1 -codec:a copy 4.ts
